@@ -1,0 +1,15 @@
+artifact_uri: file:///home/pampa89d/Repo/projects/nn_inception_team/notebooks/mlruns/308808088233752260/45537a674e6f4f2fb7e29abec3664e9e/artifacts
+deleted_time: 1753025099835
+end_time: 1753025056516
+entry_point_name: ''
+experiment_id: '308808088233752260'
+lifecycle_stage: deleted
+run_id: 45537a674e6f4f2fb7e29abec3664e9e
+run_name: convnext_tiny_model_scheduler
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753025055771
+status: 4
+tags: []
+user_id: pampa89d

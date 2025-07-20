@@ -1,0 +1,31 @@
+artifact_path: file:///home/pampa89d/Repo/projects/nn_inception_team/notebooks/mlruns/308808088233752260/models/m-0b6160b62ba24ab9bebc9b890f81bc2d/artifacts
+flavors:
+  python_function:
+    config:
+      device: null
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pytorch
+    pickle_module_name: mlflow.pytorch.pickle_module
+    python_version: 3.10.18
+  pytorch:
+    code: null
+    model_data: data
+    pytorch_version: 2.5.1
+is_signature_from_type_hint: false
+mlflow_version: 3.1.2
+model_id: m-0b6160b62ba24ab9bebc9b890f81bc2d
+model_size_bytes: 111378286
+model_uuid: m-0b6160b62ba24ab9bebc9b890f81bc2d
+prompts: null
+run_id: a474c5c18d5f48dea7e2073b054156c5
+signature:
+  inputs: '[{"name": "input", "type": "tensor", "tensor-spec": {"dtype": "float32",
+    "shape": [64, 3, 224, 224]}}]'
+  outputs: '[{"name": "output", "type": "tensor", "tensor-spec": {"dtype": "float32",
+    "shape": [64, 2]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-07-19 16:01:50.292605'

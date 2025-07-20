@@ -1,0 +1,10 @@
+artifact_location: file:///home/pampa89d/Repo/projects/nn_inception_team/notebooks/mlruns/308808088233752260/models/m-373530d4663e4305beb5e20ce2807885/artifacts
+creation_timestamp: 1752947506200
+experiment_id: '308808088233752260'
+last_updated_timestamp: 1752947511175
+model_id: m-373530d4663e4305beb5e20ce2807885
+model_type: null
+name: model
+source_run_id: fe6ae19dc3c94516abca1097b4f6a9e7
+status: 2
+status_message: null
