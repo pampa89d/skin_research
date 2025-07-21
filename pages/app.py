@@ -161,8 +161,8 @@ def main_page():
 def info_page():
     st.title("Информация о модели")
     
-    history_path = '../models/fanconic_history.pkl'
-    predictions_path = '../models/fanconic_predictions.pkl'
+    history_path = '/models/fanconic_history.pkl'
+    predictions_path = '/models/fanconic_predictions.pkl'
 
     if not os.path.exists(history_path) or not os.path.exists(predictions_path):
         st.error("Файлы с историей обучения (`fanconic_history.pkl`) или предсказаниями (`fanconic_predictions.pkl`) не найдены в папке `models`.")
