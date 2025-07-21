@@ -27,8 +27,9 @@ if 'upload_choice' not in st.session_state:
     st.session_state.upload_choice = None
 
 # --- Загрузка модели ---
+model_path = os.path.join("app/models", "model_weights_.pth")
 @st.cache_resource
-def load_model(model_path='../models/model_weights_.pth'):
+def load_model(model_path='/app/models/model_weights_.pth'):
     """Загружает модель и веса."""
     if not os.path.exists(model_path):
         st.error(f"Файл с весами модели не найден по пути: {model_path}")

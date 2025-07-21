@@ -1,22 +1,24 @@
-# 1. Используем официальный образ Python как основу
-FROM python:3.10-slim
+FROM pytorch/pytorch:2.4.0-cuda11.8-cudnn9-runtime
 
-# 2. Устанавливаем рабочую директорию внутри контейнера
+# Установка зависимостей системы
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        libglib2.0-0 \
+        libsm6 \
+        libxrender1 \
+        libxext6 && \
+    rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
-# 3. Копируем файл с зависимостями и устанавливаем их
-# Этот шаг делается отдельно для эффективного кэширования слоев
+COPY pages/ pages/
+COPY models/ models/
 COPY requirements.txt .
+
+RUN python -m pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 4. Копируем все папки и файлы нашего проекта в рабочую директорию контейнера
-# (скопирует папки 'models' и 'streamlit_app')
-COPY . .
-
-# 5. Сообщаем Docker, что контейнер будет слушать порт 8501
 EXPOSE 8501
 
-# 6. Команда, которая будет выполняться при запуске контейнера
-# Мы запускаем app.py из подпапки streamlit_app
-# --server.address=0.0.0.0 делает приложение доступным извне контейнера
-ENTRYPOINT ["streamlit", "run", "streamlit_app/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "pages/app.py", "--server.address=0.0.0.0"]
