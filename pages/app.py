@@ -27,7 +27,6 @@ if 'upload_choice' not in st.session_state:
     st.session_state.upload_choice = None
 
 # --- Загрузка модели ---
-model_path = os.path.join("app/models", "model_weights_.pth")
 @st.cache_resource
 def load_model(model_path='/app/models/model_weights_.pth'):
     """Загружает модель и веса."""
@@ -47,7 +46,7 @@ def load_model(model_path='/app/models/model_weights_.pth'):
     model = models.convnext_tiny()
     num_ftrs = model.classifier[2].in_features
     model.classifier[2] = nn.Linear(num_ftrs, 2)
-    model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
+    model.load_state_dict(torch.load(model_path, map_location='cpu'))
     model.eval()
     return model
 
@@ -161,8 +160,8 @@ def main_page():
 def info_page():
     st.title("Информация о модели")
     
-    history_path = '/models/fanconic_history.pkl'
-    predictions_path = '/models/fanconic_predictions.pkl'
+    history_path = '/app/models/fanconic_history.pkl'
+    predictions_path = '/app/models/fanconic_predictions.pkl'
 
     if not os.path.exists(history_path) or not os.path.exists(predictions_path):
         st.error("Файлы с историей обучения (`fanconic_history.pkl`) или предсказаниями (`fanconic_predictions.pkl`) не найдены в папке `models`.")
